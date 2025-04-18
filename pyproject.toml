@@ -9,7 +9,14 @@ dependencies = [
     "langchain>=0.3.23",
     "langchain-chroma>=0.2.3",
     "langchain-community>=0.3.21",
+    "langchain-huggingface>=0.1.2",
     "langchain-ollama>=0.3.2",
     "langchain-text-splitters>=0.3.8",
     "sentence-transformers>=4.1.0",
 ]
+
+[project.scripts]
+demo = "nlsearch.demo:main"
+
+[tool.uv]
+package = true

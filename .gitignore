@@ -8,4 +8,15 @@ wheels/
 
 # Virtual environments
 .venv
-./runtime
+.python-version
+.ropeproject
+*uv.lock
+
+# Runtime
+runtime/
+
+# Data
+samples/
+
+# MacOS
+.DS_Store
