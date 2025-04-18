@@ -6,6 +6,10 @@
 uv sync
 ```
 
+## Initialization
+
+- create your `./samples` directory and place your Markdown files in it.
+
 ## Usage
 
 ```bash
