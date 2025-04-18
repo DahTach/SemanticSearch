@@ -1,0 +1,28 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  start:
+    cmds:
+      - echo "Starting Elasticsearch..."
+      - docker compose up -d
+    silent: true
+
+  stop:
+    cmds:
+      - echo "Stopping Elasticsearch..."
+      - docker compose down
+    silent: true
+
+  inspect:
+    cmds:
+      - duckdb runtime/chroma.sqlite3 -c "SELECT e.id, e.embedding_id, em.key, em.string_value FROM embeddings e JOIN embedding_metadata em ON e.id = em.id JOIN segments s ON e.segment_id = s.id WHERE s.collection IN (SELECT id FROM collections WHERE name = 'documents') ORDER BY e.id, em.key LIMIT 10;"
